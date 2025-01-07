@@ -1,54 +1,61 @@
-# JIRA Version Helper Chrome Extension
+# Jira Version Creator
 
-This Chrome extension helps create new JIRA versions quickly with automated naming conventions and date calculations for different projects.
+A Chrome extension that automates the creation of version entries in Jira, specifically designed for managing sprint versions across different projects (OCD, LAA, Admin).
 
 ## Features
 
-- Automatically detects the current JIRA project (Admin Portal, Student Portal, or Learning Assignment Architecture)
-- Calculates the next sprint number based on existing versions
-- Sets start date to the Monday after the previous release
-- Sets release date to 4 weeks after the start date
-- Automatically fills the version creation form with the correct naming conventions
+- **Automatic Version Name Generation**: Creates version names in the format `PREFIX_NUMBER.0.0`
+- **Smart Date Handling**: Automatically calculates sprint dates
+- **Description Formatting**: Properly formats descriptions (e.g., "OCD S127", "LAA S127", "Admin S127")
+- **Form Auto-Population**: Automatically fills in all required fields in the Jira version creation form
+- **Project Support**: Supports multiple projects including OCD, LAA, and Admin
 
 ## Installation
 
-1. Clone or download this repository
+1. Clone this repository or download the ZIP file
 2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" in the top right corner
-4. Click "Load unpacked" and select the directory containing this extension
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked" and select the extension directory
 
 ## Usage
 
-1. Navigate to your JIRA project's Releases page
+1. Navigate to your Jira project's version page
 2. Click the extension icon in your Chrome toolbar
-3. The extension will automatically:
-   - Detect the current project
-   - Find the latest version number
-   - Calculate the appropriate dates
-   - Open and fill out the "Create version" form
+3. Fill in the required information:
+   - Sprint number
+   - Start date
+   - Release date
+4. Click "Create Version"
 
-## Project Naming Conventions
-
-- Admin Portal (ADM):
-  - Name format: Admin_[sprint].0.0
-  - Description format: Admin S[sprint]
-- Student Portal (OCD):
-  - Name format: Student_[sprint].0.0
-  - Description format: Student S[sprint]
-- Learning Assignment Architecture (LAA):
-  - Name format: LAA_[sprint].0.0
-  - Description format: LAA S[sprint]
+The extension will automatically:
+- Generate the correct version name
+- Set the start and release dates
+- Format the description appropriately
+- Create the version in Jira
 
 ## Development
 
-The extension uses Manifest V3 and consists of:
-- manifest.json: Extension configuration
-- content.js: Main logic for interacting with JIRA
-- background.js: Handles extension icon clicks
-- images/: Extension icons
+### Project Structure
+- `manifest.json`: Extension configuration
+- `popup.html`: Extension popup interface
+- `popup.js`: Main extension logic
+- `styles.css`: Extension styling
+- `background.js`: Background script for Chrome extension
+- `content.js`: Content script for interacting with Jira pages
 
-## Requirements
+### Building and Testing
+1. Make your changes
+2. Test locally by loading the unpacked extension
+3. Verify all features work as expected
 
-- Google Chrome browser
-- Access to JIRA instance
-- Appropriate permissions to create versions in JIRA
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
