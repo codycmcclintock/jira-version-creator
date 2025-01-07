@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            width: 300px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+        .preview-card {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+        .field-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .field-label {
+            color: #6B778C;
+            font-size: 14px;
+        }
+        .field-value {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .increment-btn,
+        .decrement-btn {
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            border: 1px solid #DFE1E6;
+            border-radius: 3px;
+            background: #F4F5F7;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #42526E;
+        }
+        .increment-btn:hover,
+        .decrement-btn:hover {
+            background: #EBECF0;
+        }
+        .create-btn {
+            width: 100%;
+            padding: 8px;
+            background: #0052CC;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .create-btn:hover {
+            background: #0747A6;
+        }
+        .status {
+            margin-top: 8px;
+            padding: 8px;
+            border-radius: 3px;
+            display: none;
+        }
+        .status.success {
+            background: #E3FCEF;
+            color: #006644;
+        }
+        .status.error {
+            background: #FFEBE6;
+            color: #BF2600;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-card">
+        <h2>Version Preview</h2>
+        <div class="field-row">
+            <span class="field-label">Version Name</span>
+            <div class="field-value">
+                <button class="decrement-btn" id="decrementBtn">-</button>
+                <span id="versionName"></span>
+                <button class="increment-btn" id="incrementBtn">+</button>
+            </div>
+        </div>
+        <div class="field-row">
+            <span class="field-label">Start Date</span>
+            <div class="field-value">
+                <button class="decrement-btn" id="startDateDecrementBtn">-</button>
+                <span id="startDate"></span>
+                <button class="increment-btn" id="startDateIncrementBtn">+</button>
+            </div>
+        </div>
+        <div class="field-row">
+            <span class="field-label">Release Date</span>
+            <div class="field-value">
+                <button class="decrement-btn" id="endDateDecrementBtn">-</button>
+                <span id="endDate"></span>
+                <button class="increment-btn" id="endDateIncrementBtn">+</button>
+            </div>
+        </div>
+        <div class="field-row">
+            <span class="field-label">Description</span>
+            <span id="description"></span>
+        </div>
+        <button class="create-btn" id="createVersionBtn">Create Version</button>
+    </div>
+    <div id="status" class="status"></div>
+    <script src="popup.js"></script>
+</body>
+</html>
